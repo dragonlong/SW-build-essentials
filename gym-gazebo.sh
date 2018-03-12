@@ -1,3 +1,6 @@
+######################################
+# originally contributed by Hailin Ren, Virginia Tech
+#####################################
 # refresh apt
 #sudo apt-get update
 #sudo apt-get upgrade
