@@ -8,7 +8,8 @@ echo -e "export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64\${LD_LIBRARY_PATH:+:\$
 source ~/.bashrc
 
 cd ~
-wget http://dl.dropboxusercontent.com/s/o4ptwrkxzi88mpx/cudnn-8.0-linux-x64-v6.0.tgz # Download Cudnn 6.0 for Cuda 8.0
+#wget http://dl.dropboxusercontent.com/s/o4ptwrkxzi88mpx/cudnn-8.0-linux-x64-v6.0.tgz # Download Cudnn 6.0 for Cuda 8.0
+
 tar -xzvf cudnn-8.0-linux-x64-v6.0.tgz
 
 # Copy cudnn files
@@ -82,9 +83,7 @@ pip install torchvision
 python -m pip install pymongo
 pip install tqdm
 pip install Click
-# install tensorflow 1.4.1 from Tsinghua mirror
-pip install --upgrade tensorflow-gpu==1.4.1 -i https://pypi.tuna.tsinghua.edu.cn/simple
-
+pip install --upgrade tensorflow-gpu
 # Install keras from source
 git clone https://github.com/fchollet/keras.git
 cd keras
@@ -109,7 +108,6 @@ sudo ldconfig
 cd /usr/local/lib/python3.5/site-packages/
 sudo mv cv2.cpython-35m-x86_64-linux-gnu.so cv2.so
 cd ~/venv3/lib/python3.5/site-packages/
-# link cv2 package from /usr/local/lib
 ln -s /usr/local/lib/python3.5/site-packages/cv2.so cv2.so
 deactivate
 
@@ -141,7 +139,7 @@ pip install torchvision
 python -m pip install pymongo
 pip install tqdm
 pip install Click
-pip install --upgrade tensorflow-gpu=1.4.1
+pip install --upgrade tensorflow-gpu
 # Install keras from source
 git clone https://github.com/fchollet/keras.git
 cd keras

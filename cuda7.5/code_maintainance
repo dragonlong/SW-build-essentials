@@ -1,0 +1,9 @@
+sudo mount -o force /dev/sdc2 /media/dragonx/dragon/
+sudo mount -o remount,rw,force /dev/sdc2
+sudo mount -o remount, uid = 1000,gid=1000,rw /dev/sdc2
+ sudo umount /dev/sdc2
+sudo mount /dev/sdc2 /home/dragonx/Data
+sudo mount -o rw,uid=1000,user,exec,umask=003 /dev/sdc2 /home/dragonx/Data
+sudo mount -o remount,rw /dev/sdc2
+sudo usermod --uid 1000 dragonx
+sudo chown -R 1000:dragonx /home/dragonx /media/dragonx
