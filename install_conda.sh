@@ -4,11 +4,19 @@ chmod a+x miniconda.sh
 rm miniconda.sh
 source ~/.bashrc
 conda update --yes conda
-conda create -n caffe -y python=3.6
-conda install -n caffe -c menpo -y opencv3
-conda install -n caffe -y cython scikit-image scikit-learn matplotlib bokeh ipython h5py nose pandas pyyaml jupyter pillow scipy
-python -m pip install opencv-contrib-python
-
+conda create -n py36 -y python=3.6
+conda install -n py36 -c menpo -y opencv3
+conda install -n py36 -y cython scikit-image scikit-learn matplotlib bokeh ipython h5py nose pandas pyyaml jupyter pillow scipy opencv-contrib-python
+source activate py36
+conda install -c anaconda scikit-image
+conda install -c conda-forge jupyter_contrib_nbextensions opencv-python
+conda install -c conda-forge ipywidgets
+conda install -c conda-forge ipyevents
+pip install pybullet
+pip install https://github.com/majimboo/py-mathutils/archive/2.78a.zip
+pip install pycollada
+pip install PyQt5
+pip install mayavi
 # eth0      Link encap:Ethernet  HWaddr f4:6d:04:4f:d9:06
 #           inet addr:192.168.1.4  Bcast:192.168.1.255  Mask:255.255.255.0
 #           inet6 addr: fe80::f66d:4ff:fe4f:d906/64 Scope:Link

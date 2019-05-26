@@ -1,0 +1,84 @@
+
+-- ******** Summary ********
+-- General:
+--   CMake version         : 3.12.2
+--   CMake command         : /home/lxiaol9/.conda/envs/pytorch_huck/bin/cmake
+--   System                : Linux
+--   C++ compiler          : /usr/bin/c++
+--   C++ compiler version  : 5.4.0
+--   BLAS                  : MKL
+--   CXX flags             :  -Wno-deprecated -fvisibility-inlines-hidden -fopenmp -O2 -fPIC -Wno-narrowing -Wall -Wextra -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -Wno-unused-but-set-variable -Wno-maybe-uninitialized
+--   Build type            : Release
+--   Compile definitions   : ONNX_NAMESPACE=onnx_torch;USE_GCC_ATOMICS=1;HAVE_MMAP=1;_FILE_OFFSET_BITS=64;HAVE_SHM_OPEN=1;HAVE_SHM_UNLINK=1;HAVE_MALLOC_USABLE_SIZE=1
+--   CMAKE_PREFIX_PATH     : /opt/apps/anaconda3/5.2.0/bin/../;/home/lxiaol9/.conda/envs/pytorch_huck/lib/python3.6/site-packages
+--   CMAKE_INSTALL_PREFIX  : /home/lxiaol9/jobs/pytorch/torch/lib/tmp_install
+--
+--   TORCH_VERSION         : 1.0.0
+--   CAFFE2_VERSION        : 1.0.0
+--   BUILD_ATEN_MOBILE     : OFF
+--   BUILD_ATEN_ONLY       : OFF
+--   BUILD_BINARY          : OFF
+--   BUILD_CUSTOM_PROTOBUF : ON
+--     Link local protobuf : ON
+--   BUILD_DOCS            : OFF
+--   BUILD_PYTHON          : ON
+--     Python version      : 3.6.6
+--     Python executable   : /home/lxiaol9/.conda/envs/pytorch_huck/bin/python
+--     Pythonlibs version  : 3.6.6
+--     Python library      : /home/lxiaol9/.conda/envs/pytorch_huck/lib/libpython3.6m.so.1.0
+--     Python includes     : /home/lxiaol9/.conda/envs/pytorch_huck/include/python3.6m
+--     Python site-packages: lib/python3.6/site-packages
+--   BUILD_CAFFE2_OPS      : OFF
+--   BUILD_SHARED_LIBS     : ON
+--   BUILD_TEST            : ON
+--   USE_ASAN              : OFF
+--   USE_CUDA              : 1
+--     CUDA static link    : 0
+--     USE_CUDNN           : ON
+--     CUDA version        : 8.0
+--     cuDNN version       : 6.0.21
+--     CUDA root directory : /usr/local/cuda
+--     CUDA library        : /usr/lib/powerpc64le-linux-gnu/libcuda.so
+--     cudart library      : /usr/local/cuda/lib64/libcudart_static.a;-pthread;dl;/usr/lib/powerpc64le-linux-gnu/librt.so
+--     cublas library      : /usr/local/cuda/lib64/libcublas.so;/usr/local/cuda/lib64/libcublas_device.a
+--     cufft library       : /usr/local/cuda/lib64/libcufft.so
+--     curand library      : /usr/local/cuda/lib64/libcurand.so
+--     cuDNN library       : /usr/lib/powerpc64le-linux-gnu/libcudnn.so.6
+--     nvrtc               : /usr/local/cuda/lib64/libnvrtc.so
+--     CUDA include path   : /usr/local/cuda/include
+--     NVCC executable     : /usr/local/cuda/bin/nvcc
+--     CUDA host compiler  : /usr/bin/cc
+--     USE_TENSORRT        : OFF
+--   USE_ROCM              : OFF
+--   USE_EIGEN_FOR_BLAS    : ON
+--   USE_FBGEMM            : 0
+--   USE_FFMPEG            : OFF
+--   USE_GFLAGS            : OFF
+--   USE_GLOG              : OFF
+--   USE_LEVELDB           : OFF
+--   USE_LITE_PROTO        : OFF
+--   USE_LMDB              : OFF
+--   USE_METAL             : OFF
+--   USE_MKL               : OFF
+--   USE_MKLDNN            : OFF
+--   USE_MOBILE_OPENGL     : OFF
+--   USE_NCCL              : ON
+--     USE_SYSTEM_NCCL     : OFF
+--   USE_NNPACK            : OFF
+--   USE_NUMPY             : ON
+--   USE_OBSERVERS         : ON
+--   USE_OPENCL            : OFF
+--   USE_OPENCV            : OFF
+--   USE_OPENMP            : OFF
+--   USE_PROF              : OFF
+--   USE_QNNPACK           : OFF
+--   USE_REDIS             : OFF
+--   USE_ROCKSDB           : OFF
+--   USE_ZMQ               : OFF
+--   USE_DISTRIBUTED       : ON
+--     USE_MPI             : OFF
+--     USE_GLOO            : ON
+--     USE_GLOO_IBVERBS    : 1
+--   Public Dependencies  : Threads::Threads
+--   Private Dependencies : cpuinfo;fp16;gloo;onnxifi_loader;rt;gcc_s;gcc;dl
+-- Configuring done
