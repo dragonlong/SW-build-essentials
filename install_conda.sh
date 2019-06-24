@@ -1,7 +1,8 @@
-wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-chmod a+x miniconda.sh
-./miniconda.sh  # you will be prompted to agree on terms and to configure the installation
-rm miniconda.sh
+# cd ~/Downloads
+# wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+# chmod a+x miniconda.sh
+# ./miniconda.sh  # you will be prompted to agree on terms and to configure the installation
+# rm miniconda.sh
 source ~/.bashrc
 conda update --yes conda
 conda create -n py36 -y python=3.6

@@ -5,6 +5,7 @@
 if ! which xterm ; then
     echo "xterm not found"
     exit 1
+
 fi
 
 
