@@ -88,8 +88,8 @@ def render_data(path_urdf, ind_urdf, _WRITE_FLAG=True, _RENDER_FLAG=True, _CREAT
     cameraUp     = [0, 0, 1]        # z axis
     cameraPos    = [-1.1, -1.1, 1.1]
     if _USE_GUI:
-        pybullet.connect(pybullet.GUI)  
-    else: 
+        pybullet.connect(pybullet.GUI)
+    else:
         pybullet.connect(pybullet.DIRECT)
 
     # add by xiaolong for better data simulation,
@@ -152,6 +152,8 @@ def render_data(path_urdf, ind_urdf, _WRITE_FLAG=True, _RENDER_FLAG=True, _CREAT
         base_path = '/home/xiaolong/Downloads/6DPOSE/synthetic'
     elif platform.uname()[1] == 'vllab3':
         base_path = '/mnt/data/lxiaol9/rbo'
+    elif platform.uname()[1] == 'xiaolongli.mtv.corp.google.com':
+        base_path = '/usr/local/google/home/xiaolongli/Downloads/data/6DPOSE/synthetic'
     else:
         base_path = '/work/cascades/lxiaol9/6DPOSE/articulated_objects/synthetic'
 
@@ -182,7 +184,6 @@ def render_data(path_urdf, ind_urdf, _WRITE_FLAG=True, _RENDER_FLAG=True, _CREAT
             for j in range(num_joints+1):
                 pybullet.setJointMotorControl2(obj_parts[j], steer, pybullet.POSITION_CONTROL, targetPosition=steeringAngle)
         pybullet.stepSimulation()
-
         joint_pos = OrderedDict()
         for joint in range(pybullet.getNumJoints(obj_parts[0])):
             lstate = pybullet.getLinkState(obj_parts[0], linkIndex=joint, computeForwardKinematics=True)
@@ -286,8 +287,11 @@ if __name__ == "__main__":
     _USE_GUI = False
     num_render= 20   # per articulation status
     cnt_artic = 30   # number of articulation change
+
     path_urdf = "/work/cascades/lxiaol9/6DPOSE/articulated_objects/synthetic/urdf"
+    if platform.uname()[1] == 'xiaolongli.mtv.corp.google.com':
+        path_urdf = '/usr/local/google/home/xiaolongli/Downloads/data/6DPOSE/synthetic/urdf'
     # path_urdf = "/Users/DragonX/Downloads/ARC/DATA"
-    for ind_urdf in range(100):
+    for ind_urdf in range(5):
         print("rendering URDF %d" % (ind_urdf))
         render_data(path_urdf, ind_urdf, _WRITE_FLAG=_WRITE, _RENDER_FLAG=_RENDER, _CREATE_FOLDER=_CREATE, RENDER_NUM=num_render, ARTIC_CNT=cnt_artic, _USE_GUI=_USE_GUI)
