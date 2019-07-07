@@ -10,6 +10,15 @@ jupyter notebook --ip=$HOSTNAME --port=5556 --no-browser & >  jupyter.hostname
 ssh -N -L localhost:5556:ca234:5556 lxiaol9@cascades1.arc.vt.edu
 ssh -N -L localhost:6006:nr025:6006 lxiaol9@newriver1.arc.vt.edu
 ssh -N -L localhost:5556:nr026:5556 lxiaol9@newriver1.arc.vt.edu
+ssh xiaolong-simu -NfL localhost:50000:localhost:50000
+User xiaolongli
+scp -i ~/.ssh/google_compute_engine /usr/local/google/home/xiaolongli/Downloads/data/example.lua xiaolongli@35.238.86.75:~
+scp -i ~/.ssh/google_compute_engine /usr/local/google/home/xiaolongli/Downloads/data/Motion\ Dataset\ v0.zip xiaolongli@35.238.86.75:~
+gcloud compute scp /usr/local/google/home/xiaolongli/Downloads/data/example.lua xiaolong-simu:~
+urdf-viz ~/Downloads/data/6DPOSE/shape2motion/urdf/laptop/0001/syn.urdf
+urdf-viz ~/Downloads/data/6DPOSE/robot_movement_interface/dependencies/ur_description/urdf/ur10_robot.urdf
+#
+#
 # Some bugs, like python visualization could be solved by
 import matplotlib
 matplotlib.use('Agg')

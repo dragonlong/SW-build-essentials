@@ -83,7 +83,7 @@ def print_matrix(f, mat):
         f.write("\n")
 
 #>>>>>>>>>>>>>>>>>>>>>>---------Rendering setup----------<<<<<<<<<<<<<<<<<<<<<<<<<#
-def render_data(path_urdf, ind_urdf, _WRITE_FLAG=True, _RENDER_FLAG=True, _CREATE_FOLDER=True, RENDER_NUM=100, ARTIC_CNT=20, _USE_GUI=True):
+def render_data(base_path, name_dataset, name_obj, ind_urdf, _WRITE_FLAG=True, _RENDER_FLAG=True, _CREATE_FOLDER=True, RENDER_NUM=100, ARTIC_CNT=20, _USE_GUI=True):
     camTargetPos = [0, 0, 0]
     cameraUp     = [0, 0, 1]        # z axis
     cameraPos    = [-1.1, -1.1, 1.1]
@@ -114,7 +114,7 @@ def render_data(path_urdf, ind_urdf, _WRITE_FLAG=True, _RENDER_FLAG=True, _CREAT
     camPosZ       = 0
 
     upAxisIndex = 2 # align with z
-    camDistance = 4.5
+    camDistance = 1
     pixelWidth  = 512
     pixelHeight = 512
     nearPlane   = 0.01
@@ -124,6 +124,7 @@ def render_data(path_urdf, ind_urdf, _WRITE_FLAG=True, _RENDER_FLAG=True, _CREAT
     # camInfo  = pybullet.getDebugVisualizerCamera()
     # planeId   = pybullet.loadURDF("plane.urdf", [0, 0, -1])
     # obj       = pybullet.loadURDF("{}/{:04d}/syn.urdf".format(path_urdf, ind_urdf))
+    path_urdf = base_path + '/' + name_dataset + '/urdf' + '/' + name_obj
     tree_urdf = ET.parse("{}/{:04d}/syn.urdf".format(path_urdf, ind_urdf))
     root      = tree_urdf.getroot()
 
@@ -145,18 +146,6 @@ def render_data(path_urdf, ind_urdf, _WRITE_FLAG=True, _RENDER_FLAG=True, _CREAT
             pybullet.setJointMotorControl2(obj_parts[i],joint,pybullet.VELOCITY_CONTROL,targetVelocity=0,force=0)
             pybullet.getJointInfo(obj_parts[i], joint)
 
-    if platform.uname()[0] == 'Darwin':
-        print("Now it knows it's in my local Mac")
-        base_path = '/Users/DragonX/Downloads/ARC/6DPOSE/synthetic'
-    elif platform.uname()[1] == 'viz1':
-        base_path = '/home/xiaolong/Downloads/6DPOSE/synthetic'
-    elif platform.uname()[1] == 'vllab3':
-        base_path = '/mnt/data/lxiaol9/rbo'
-    elif platform.uname()[1] == 'xiaolongli.mtv.corp.google.com':
-        base_path = '/usr/local/google/home/xiaolongli/Downloads/data/6DPOSE/synthetic'
-    else:
-        base_path = '/work/cascades/lxiaol9/6DPOSE/articulated_objects/synthetic'
-
     simu_cnt   = 0
     main_start = time.time() # measure how long it will take for the whole rendering
     steeringAngleArray          = 2 * np.random.rand(ARTIC_CNT, num_joints)
@@ -170,13 +159,14 @@ def render_data(path_urdf, ind_urdf, _WRITE_FLAG=True, _RENDER_FLAG=True, _CREAT
     lightAmbientCoeffArray      = 0.1  + 0.2 * np.random.rand(ARTIC_CNT, RENDER_NUM)
     lightDiffuseCoeffArray      = 0.85 + 0.1 * np.random.rand(ARTIC_CNT, RENDER_NUM)
 
+    save_path = base_path + '/' + name_dataset + '/render/' + name_obj
     while (simu_cnt < ARTIC_CNT):
-        if (not os.path.exists(base_path + '/{0:04d}/{1}/depth/'.format(ind_urdf, simu_cnt))) and _CREATE_FOLDER:
-            os.makedirs(base_path + '/{0:04d}/{1}/depth/'.format(ind_urdf, simu_cnt))
-            os.makedirs(base_path + '/{0:04d}/{1}/rgb/'.format(ind_urdf, simu_cnt))
-            os.makedirs(base_path + '/{0:04d}/{1}/mask/'.format(ind_urdf, simu_cnt))
+        if (not os.path.exists(save_path + '/{0:04d}/{1}/depth/'.format(ind_urdf, simu_cnt))) and _CREATE_FOLDER:
+            os.makedirs(save_path + '/{0:04d}/{1}/depth/'.format(ind_urdf, simu_cnt))
+            os.makedirs(save_path + '/{0:04d}/{1}/rgb/'.format(ind_urdf, simu_cnt))
+            os.makedirs(save_path + '/{0:04d}/{1}/mask/'.format(ind_urdf, simu_cnt))
         yml_dict = OrderedDict()
-        yml_file = base_path + '/{0:04d}/{1}/gt.yml'.format(ind_urdf, simu_cnt)
+        yml_file = save_path + '/{0:04d}/{1}/gt.yml'.format(ind_urdf, simu_cnt)
         # set articulation status
 
         for steer in range(num_joints):
@@ -239,7 +229,7 @@ def render_data(path_urdf, ind_urdf, _WRITE_FLAG=True, _RENDER_FLAG=True, _CREAT
                     np_rgb_arr  = np.reshape(rgb, (h, w, 4))[:, :, :3]
                     np_depth_arr= np.reshape(depth, (h, w, 1))#.astype(np.uint8)
                     np_mask_arr = (np.reshape(mask, (h, w, 1))).astype(np.uint8)
-                    image_path  = base_path + '/{0:04d}/{1}'.format(ind_urdf, simu_cnt)
+                    image_path  = save_path + '/{0:04d}/{1}'.format(ind_urdf, simu_cnt)
 
                     rgb_name   = image_path + '/rgb/{0:06d}.png'.format(img_id)
                     depth_img_name   = image_path + '/depth/{0:06d}.png'.format(img_id)
@@ -256,7 +246,7 @@ def render_data(path_urdf, ind_urdf, _WRITE_FLAG=True, _RENDER_FLAG=True, _CREAT
                     yml_dict['frame_{}'.format(img_id)] = OrderedDict( [ ('obj', joint_pos),
                                                       ('viewMat', list(viewMatrix)),
                                                       ('projMat', list(projectionMatrix))
-                                                      ] )
+                                                      ])
                     #>>>>>>>>>>>>>>>>>>>>>>---------Image Infos----------<<<<<<<<<<<<<<<<<<<<<<<<<#
                     # fig = plt.figure(dpi=200)
                     # plt.imshow(np.squeeze(np_mask_arr),interpolation='none',animated=True,label="blah")
@@ -281,17 +271,30 @@ if __name__ == "__main__":
     #(every urdf) (articulation) (view angles)
     # subprocess.call("rm -rf /work/cascades/lxiaol9/6DPOSE/articulated_objects/synthetic/000{0..9}/")
     # subprocess.call("rm -rf /work/cascades/lxiaol9/6DPOSE/articulated_objects/synthetic/00{10..99}/")
-    _WRITE   = True
+    _WRITE   = False
     _RENDER  = True
     _CREATE  = True
-    _USE_GUI = False
-    num_render= 20   # per articulation status
-    cnt_artic = 30   # number of articulation change
+    _USE_GUI = True
+    num_render= 10   # per articulation status
+    cnt_artic = 100   # number of articulation change
 
-    path_urdf = "/work/cascades/lxiaol9/6DPOSE/articulated_objects/synthetic/urdf"
-    if platform.uname()[1] == 'xiaolongli.mtv.corp.google.com':
-        path_urdf = '/usr/local/google/home/xiaolongli/Downloads/data/6DPOSE/synthetic/urdf'
-    # path_urdf = "/Users/DragonX/Downloads/ARC/DATA"
-    for ind_urdf in range(5):
+    is_debug  = True
+    name_dataset   = 'sample'#'Motion\ Dataset\ v0/'
+    name_obj  = 'bike'
+    index_obj = 1
+    if platform.uname()[0] == 'Darwin':
+        print("Now it knows it's in my local Mac")
+        base_path = '/Users/DragonX/Downloads/ARC/6DPOSE'
+    elif platform.uname()[1] == 'viz1':
+        base_path = '/home/xiaolong/Downloads/6DPOSE'
+    elif platform.uname()[1] == 'vllab3':
+        base_path = '/mnt/data/lxiaol9/rbo'
+    elif platform.uname()[1] == 'xiaolongli.mtv.corp.google.com':
+        base_path = '/usr/local/google/home/xiaolongli/Downloads/data/6DPOSE'
+    elif platform.uname()[1] == 'xiaolong-simu':
+        base_path = '/home/xiaolongli/data/6DPOSE'
+    else:
+        base_path = '/work/cascades/lxiaol9/6DPOSE/articulated_objects'
+    for ind_urdf in range(1, 2):
         print("rendering URDF %d" % (ind_urdf))
-        render_data(path_urdf, ind_urdf, _WRITE_FLAG=_WRITE, _RENDER_FLAG=_RENDER, _CREATE_FOLDER=_CREATE, RENDER_NUM=num_render, ARTIC_CNT=cnt_artic, _USE_GUI=_USE_GUI)
+        render_data(base_path, name_dataset, name_obj, ind_urdf, _WRITE_FLAG=_WRITE, _RENDER_FLAG=_RENDER, _CREATE_FOLDER=_CREATE, RENDER_NUM=num_render, ARTIC_CNT=cnt_artic, _USE_GUI=_USE_GUI)

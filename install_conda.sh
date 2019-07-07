@@ -17,7 +17,8 @@ pip install pybullet
 pip install https://github.com/majimboo/py-mathutils/archive/2.78a.zip
 pip install pycollada
 pip install PyQt5
-pip install mayavi
+pip install mayav
+pip install pywavefront
 # eth0      Link encap:Ethernet  HWaddr f4:6d:04:4f:d9:06
 #           inet addr:192.168.1.4  Bcast:192.168.1.255  Mask:255.255.255.0
 #           inet6 addr: fe80::f66d:4ff:fe4f:d906/64 Scope:Link
