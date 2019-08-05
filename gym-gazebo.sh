@@ -6,7 +6,7 @@
 #sudo apt-get upgrade
 # install python3 packages
 # sudo apt-get install python3-numpy python3-dev python3-pip python3-wheel
-# install ros
+# install ros dependencies
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 sudo apt-get update

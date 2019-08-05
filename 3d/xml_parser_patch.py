@@ -106,7 +106,7 @@ def generate_urdf(parts_num, save_ind, base_path, link_w=None):
             children[i].extend(visual)
 
         inertial = SubElement(children[i], 'inertial')
-        node_inertial = XML('''<inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="3.0"/><inertia ixx="0.9" ixy="0.9" ixz="0.9" iyy="0.9" iyz="0" izz="0.9"/></inertial>''')
+        node_inertial = XML('''<inertial><origin rpy="0 0 0" xyz="0 0 0"/><mass value="3.0"/><inertia ixx="100" ixy="100" ixz="100 iyy="100" iyz="100" izz="100"/></inertial>''')
         inertial.extend(node_inertial)
         if i == 0:
             for mass in inertial.iter('mass'):
