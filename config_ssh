@@ -1,0 +1,94 @@
+# Put this file into your ~/.ssh/ directory.
+# For max convenience, put it in both your computer and lab home directories.
+# Need to replace lxiaol9 with your CVL (i.e., ECE) account name
+Host godel
+    HostName godel.ece.vt.edu
+    Port 22
+    User lxiaol9
+Host code.vt.edu
+    RSAAuthentication yes
+    IdentityFile ~/.ssh/id_rsa
+# Private GitLab server
+Host gitlab.company.com
+RSAAuthentication yes
+IdentityFile ~/.ssh/id_rsa
+Host turing
+    HostName turing.ece.vt.edu
+    Port 22
+    User lxiaol9
+Host marr
+    HostName marr.ece.vt.edu
+    Port 22
+    User lxiaol9
+Host vapnik
+    HostName vapnik.ece.vt.edu
+    Port 22
+    User lxiaol9
+Host minsky
+    HostName minsky.ece.vt.edu
+    Port 22
+    User lxiaol9
+Host mccarthy
+    HostName mccarthy.ece.vt.edu
+    Port 22
+    User lxiaol9
+Host rosen
+    HostName rosenblatt.ece.vt.edu
+    Port 22
+    User lxiaol9
+Host tesla
+    HostName tesla.ece.vt.edu
+    Port 22
+    User lxiaol9
+Host hebb
+    HostName hebb.ece.vt.edu
+    Port 22
+    User lxiaol9
+Host werbos
+    HostName werbos.ece.vt.edu
+    Port 2222
+    User lxiaol9
+Host fuku
+    HostName fukushima.ece.vt.edu
+    Port 2222
+    User lxiaol9
+Host filebox
+    HostName filebox4.ece.vt.edu
+    User lxiaol9
+
+Host huck11
+    Hostname huckleberry1.arc.vt.edu
+    Port 22
+    User lxiaol9
+    ForwardX11Trusted yes
+    ForwardX11 yes
+
+Host huck
+    Hostname huckleberry1.arc.vt.edu
+    Port 22
+    User lxiaol9
+
+Host dt
+    Hostname dragonstooth1.arc.vt.edu
+    Port 22
+    User lxiaol9
+
+Host cc
+    Hostname cascades1.arc.vt.edu
+    Port 22
+    User lxiaol9
+    ServerAliveInterval 240
+
+Host river
+    Hostname newriver1.arc.vt.edu
+    Port 22
+    User lxiaol9
+    ServerAliveInterval 240
+
+Host br
+    Hostname blueridge1.arc.vt.edu
+    Port 22
+    User lxiaol9
+   
+RemoteForward 52698 127.0.0.1:52698
+

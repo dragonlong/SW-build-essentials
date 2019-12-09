@@ -14,7 +14,6 @@ pip install PyQt5
 pip install mayavi
 pip install h5py PyYaml
 pip install cython scikit-image scikit-learn matplotlib bokeh ipython h5py PyYaml nose pandas jupyter
-
 conda install -c anaconda scikit-image
 conda install -c conda-forge jupyter_contrib_nbextensions
 
@@ -77,3 +76,9 @@ https://www.tomdalling.com/blog/modern-opengl/07-more-lighting-ambient-specular-
 grep --include={*.env,*.sh,*.txt} -Rnl '/work/cascades/lxiaol9/SIMULIA' /work/cascades/lxiaol9/SIMULIA/Abaqus/2018/linux_a64/SMA/site/ | xargs -I@ sed -i 's|${MY_ABAQUS_DIR}|/opt/apps/abaqus/2018|g' @
 grep --include={*.env,*.sh,*.txt} -Rnw '/work/cascades/lxiaol9/SIMULIA' /work/cascades/lxiaol9/SIMULIA/CAE/2018/linux_a64/SMA/site
 ls -l $MYDIR | egrep '^d' | awk '{print $8}'
+
+
+- organize your stuff;
+  translational;
+  simulation data training & real data testing;
+- paper draft by tomorrow morning!!
