@@ -8,4 +8,4 @@ ps -A | grep sshfs
 fusermount -u YOUR_MNT_DIR
 sudo umount -l YOUR_MNT_DIR
 sshfs lxiaol9@newriver1.arc.vt.edu:/work/cascades/lxiaol9/ ./ARCwork/
-sshfs lxiaol9@newriver1.arc.vt.edu:/home/lxiaol9/ ./homeARC/
+sshfs lxiaol9@newriver1.arc.vt.edu:/home/lxiaol9/ ./ARChome/

@@ -11,7 +11,7 @@ mkdir catkin_workspace
 cd catkin_workspace
 catkin init
 # Instruct catkin to set cmake variables
-catkin config -DPYTHON_EXECUTABLE=/home/dragonx/anaconda3/envs/tensorflow/bin/python -DPYTHON_INCLUDE_DIR=/home/dragonx/anaconda3/envs/tensorflow/include/python3.6m -DPYTHON_LIBRARY=/home/dragonx/anaconda3/envs/tensorflow/lib/libpython3.6m.so 
+catkin config -DPYTHON_EXECUTABLE=/home/dragonx/anaconda3/envs/tensorflow/bin/python -DPYTHON_INCLUDE_DIR=/home/dragonx/anaconda3/envs/tensorflow/include/python3.6m -DPYTHON_LIBRARY=/home/dragonx/anaconda3/envs/tensorflow/lib/libpython3.6m.so
 # Instruct catkin to install built packages into install place. It is $CATKIN_WORKSPACE/install folder
 catkin config --install
 # Clone cv_bridge src
@@ -43,4 +43,3 @@ running install_egg_info
 Writing /home/dragonx/anaconda3/envs/tensorflow/lib/python3.6/site-packages/cv_bridge-1.12.8-py3.6.egg-info
 
 echo "source ~/catkin_workspace/devel/setup.bash" >> ~/.bashrc
-

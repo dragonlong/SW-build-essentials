@@ -115,7 +115,7 @@ if ! shopt -oq posix; then
 fi
 
 # added by Anaconda3 installer
-export PATH="/home/xiaolong/anaconda3/bin:$PATH"
+export PATH="/home/dragon/anaconda3/bin:$PATH"
 alias ..='cd ..'
 alias apt-get='sudo apt-get'
 alias ll='ls -la'
@@ -123,16 +123,16 @@ alias l.='ls -d .* --color=auto'
 alias h='history'
 alias j='jobs -l'
 alias rm='rm -I --preserve-root'
-alias ARCwork='cd /home/xiaolong/ARCwork/6DPOSE/shape2motion'
-alias code='cd /home/xiaolong/homeARC/3DGenNet2019/Art6D/baselines/densecoord/ARCworksets/shape2motion'
-alias gen='cd /home/xiaolong/homeARC/3DGenNet2019/Art6D/part_mobility/code'
+alias ARCwork='cd /home/dragon/ARCwork/6DPOSE/shape2motion'
+alias code='cd /home/dragon/ARChome/3DGenNet2019/Art6D/'
+alias gen='cd /home/dragon/ARChome/3DGenNet2019/Art6D/part_mobility/code'
 alias spfn='cd ~/codebase/SPFN'
 alias res='cd ~/ARCwork/6DPOSE/results/test_pred'
-alias nocs='cd ~/homeARC/3DGenNet2019/Art6D/baselines/spfn'
+alias nocs='cd ~/ARChome/3DGenNet2019/Art6D/baselines/spfn'
 alias g='grep'
-alias data='cd /home/xiaolong/ARCwork/6DPOSE'
-alias src='cd /home/xiaolong/homeARC/3DGenNet2019/Art6D/src'
-alias sc='cd /home/xiaolong/homeARC/3DGenNet2019/Art6D/scripts'
-alias render='cd /home/xiaolong/homeARC/3DGenNet2019/Art6D/rendering/code/render'
-source /home/xiaolong/.cargo/env
-source activate tensorflow
+alias data='cd /home/dragon/ARCwork/6DPOSE'
+alias src='cd /home/dragon/ARChome/3DGenNet2019/Art6D/src'
+alias sc='cd /home/dragon/ARChome/3DGenNet2019/Art6D/scripts'
+alias render='cd /home/dragon/ARChome/3DGenNet2019/Art6D/src/render'
+source /home/dragon/.cargo/env
+source activate py36
