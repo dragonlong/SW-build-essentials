@@ -9,6 +9,9 @@ sshfs lxiaol9@newriver1.arc.vt.edu:/home/lxiaol9/ /home/dragon/ARChome/ -o recon
 sshfs lxiaol9@newriver1.arc.vt.edu:/work/cascades/lxiaol9/ /Users/dragonx/Downloads/ARCwork/ -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
 sshfs lxiaol9@newriver1.arc.vt.edu:/home/lxiaol9/ /Users/dragonx/Downloads/ARChome/ -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
 sshfs lxiaol9@newriver1.arc.vt.edu:/groups/CESCA-CV/ /Users/dragonx/Downloads/groupARC/ -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
+
+sshfs xili@cv0.merl.com:/homes/xili/ cv0_home/ -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
+sshfs xili@cv0.merl.com:/data2/datasets/tmp datasets/ -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
 #
 -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
 #https://serverfault.com/questions/6709/sshfs-mount-that-survives-disconnect
